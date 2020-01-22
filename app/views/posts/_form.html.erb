@@ -27,8 +27,10 @@
     <%= form.text_area :body %>
   </div>
   
-
   <div class="actions">
+    <%= form.select :status, Post.statuses.keys.map { |k| [t("enums.post.status.#{k}"),k]} %>
+
+  
     <%= form.submit %>
   </div>
 <% end %>

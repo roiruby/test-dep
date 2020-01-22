@@ -6,7 +6,8 @@ class PostsController < ApplicationController
   # GET /posts
   # GET /posts.json
   def index
-    @posts = Post.all.includes(:tags)
+
+    @posts = Post.published.order("created_at DESC").includes(:tags)
   end
 
   # GET /posts/1
@@ -65,6 +66,10 @@ class PostsController < ApplicationController
     end
   end
   
+  def confirm
+    @posts = Post.draft.order("created_at DESC")
+  end
+  
 
   private
   
@@ -75,7 +80,7 @@ class PostsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def post_params
-      params.require(:post).permit(:title, :body, :tag_list)
+      params.require(:post).permit(:title, :body, :tag_list, :status)
     end
     
     def set_post_tags_to_gon
