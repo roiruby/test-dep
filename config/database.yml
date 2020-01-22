@@ -56,7 +56,7 @@ production:
   adapter: mysql2
   encoding: utf8
   pool: 5
-  database: test_app_production
+  database: test01_app_production
   username: root
   password: Pladmysql1!
   socket: /var/lib/mysql/mysql.sock
