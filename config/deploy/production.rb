@@ -1,3 +1,3 @@
-server '118.27.35.92', user: 'newuser', roles: %w{app db web}, port: 10022 
+server '118.27.6.18', user: 'ec2-user', roles: %w{app db web}, port: 53101 
 
-set :ssh_options, keys: '~/.ssh/github/id_rsa'
+set :ssh_options, keys: '~/.ssh/conoha_key'
