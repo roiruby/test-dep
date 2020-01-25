@@ -38,6 +38,16 @@ task :db_create do
   end
 end
 
+task :db_reset do
+  on roles(:app) do
+    within current_path do
+      with rails_env: fetch(:rails_env) do
+        execute :rake, "db:reset"
+      end
+    end
+  end
+end
+
 after :publishing, :restart
 
   after :restart, :clear_cache do
